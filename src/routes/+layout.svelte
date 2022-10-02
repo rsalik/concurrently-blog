@@ -25,7 +25,7 @@
 
 <style lang="scss">
 	$header-height: 20vh;
-	$header-height-mobile: 25vw;
+	$header-height-mobile: 33vw;
 
 	header {
 		font-size: 2.7em;
