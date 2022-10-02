@@ -83,7 +83,7 @@
 
 			.date {
 				@media screen and (max-width: $mobile) {
-					font-size: .75em;
+					font-size: 0.75em;
 				}
 			}
 		}
@@ -116,8 +116,6 @@
 			width: 95%;
 			height: 13.3rem;
 			padding: 1em;
-
-			border-bottom: $border;
 
 			.text-wrapper {
 				width: 55%;

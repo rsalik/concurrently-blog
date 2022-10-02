@@ -27,6 +27,9 @@
 	$header-height: 20vh;
 	$header-height-mobile: 33vw;
 
+	$footer-margin: 5vh;
+	$footer-margin-mobile: 2vh;
+
 	header {
 		font-size: 2.7em;
 		font-weight: $fw-semibold;
@@ -78,17 +81,19 @@
 
 	.content {
 		width: 92%;
-		min-height: 100vh - $header-height;
+		min-height: 100vh - $header-height - $footer-margin;
 		margin: 0 auto;
 
 		@media screen and (max-width: $mobile) {
-			min-height: calc(100vh - $header-height-mobile);
+			min-height: calc(100vh - $header-height-mobile - $footer-margin-mobile);
 		}
 	}
 
 	footer {
 		display: flex;
 		flex-direction: column;
+
+		margin-top: $footer-margin;
 
 		padding: 1em 2rem;
 
@@ -98,6 +103,7 @@
 		justify-items: center;
 
 		@media screen and (max-width: $mobile) {
+			margin-top: $footer-margin-mobile;
 			font-size: 4vw;
 
 			padding: 1.5em 2rem;
