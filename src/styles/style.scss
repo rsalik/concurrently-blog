@@ -1,0 +1,175 @@
+@import 'fonts';
+@import 'values';
+
+html,
+body,
+body > div {
+	width: 100%;
+	min-height: 100vh;
+	margin: 0;
+}
+
+body > div {
+	position: relative;
+
+	background: $bkg;
+}
+
+body {
+	font-family: $font-sans;
+	font-size: 24px;
+	font-weight: $fw-light;
+
+	color: $color;
+	background: $accent;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.title:not(.token) {
+	font-family: $font-display;
+}
+
+h3,
+h4,
+h5,
+h6 {
+	margin: 2rem 0 0.2rem;
+}
+
+a {
+	text-decoration: none;
+
+	color: inherit;
+
+	&.link {
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+h1 {
+	font-size: 2.2em;
+
+	margin: 4rem 0 0.4rem;
+}
+
+h2 {
+	font-size: 1.8em;
+
+	margin: 3.5rem 0 0.3rem;
+}
+
+h3 {
+	font-size: 1.5em;
+}
+
+h4 {
+	font-size: 1.3em;
+}
+
+h5 {
+	font-size: 1.1em;
+}
+
+h6 {
+	font-size: 1em;
+}
+
+code {
+	font-family: 'Fira Code', 'Fira Mono', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+	font-size: 0.95em;
+
+	padding: 0.1em 0.2em;
+
+	white-space: nowrap;
+
+	border-radius: 5px;
+	background: $darkwhite;
+}
+
+pre code {
+	font-size: 1em;
+
+	padding: 0;
+
+	border-radius: 0;
+}
+
+::selection {
+	background: mix($lightaccent, $bkg, 50%);
+}
+
+article {
+	font-family: $font-serif;
+	font-size: 1.3rem;
+	line-height: 2em;
+
+	margin: 1rem 0;
+
+	img {
+		width: 100%;
+
+		border-radius: $border-radius;
+
+		&.float {
+			float: right;
+
+			max-width: 40%;
+			margin: 0 1.2rem;
+
+			border-radius: $border-radius;
+		}
+	}
+
+	a {
+		text-decoration: underline;
+
+		color: $accent;
+	}
+
+	h1 a,
+	h2 a,
+	h3 a,
+	h4 a,
+	h5 a,
+	h6 a {
+		position: relative;
+
+		text-decoration: none;
+
+		color: inherit;
+
+		&::before {
+			position: absolute;
+			left: -1em;
+
+			content: '#';
+			transition: opacity 0.2s ease-in-out;
+
+			opacity: 0;
+			color: $lightcolor;
+		}
+
+		&:hover::before {
+			opacity: 1;
+		}
+	}
+
+	pre {
+		font-size: 0.8em;
+
+		margin: 1.5em 0 !important;
+
+		border-radius: $border-radius;
+
+		:global(code) {
+			font-size: 0.8em;
+		}
+	}
+}
