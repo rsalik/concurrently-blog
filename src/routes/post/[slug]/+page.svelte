@@ -1,7 +1,22 @@
 <script lang="ts">
+	import PageLink from '$lib/components/PageLink.svelte';
 	import moment from 'moment';
+	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
 	export let data: PageData;
+
+	let showPrev = false,
+		showNext = false;
+
+	let mobile = false;
+
+	onMount(() => {
+		mobile = window.innerWidth < 768;
+
+		window.addEventListener('resize', () => {
+			mobile = window.innerWidth < 768;
+		});
+	});
 </script>
 
 <svelte:head>
@@ -38,6 +53,62 @@
 		Published on <span>{moment(data.post.date).utc().format('dddd, MMMM Do, YYYY')}</span> by
 		<span>{data.post.author}</span>
 		in <span class="category">{data.post.category}</span>
+	</div>
+	<div class="nav-links">
+		{#if data.prev}
+			{#if showPrev && !mobile}
+				<div class="post-preview prev">
+					<PageLink page={data.prev} display="card" />
+				</div>
+			{/if}
+			<a
+				class="next link"
+				href={`/post/${data.prev.slug}`}
+				on:mouseover={() => {
+					showPrev = true;
+				}}
+				on:focus={() => {
+					showPrev = true;
+				}}
+				on:mouseleave={() => {
+					showPrev = false;
+				}}
+				on:focusout={() => {
+					showPrev = false;
+				}}
+			>
+				<span class="arrow">←</span>
+				<span>Previous Post</span>
+			</a>
+		{:else}
+			<div class="space" />
+		{/if}
+		{#if data.next}
+			{#if showNext && !mobile}
+				<div class="post-preview next">
+					<PageLink page={data.next} display="card" />
+				</div>
+			{/if}
+			<a
+				class="next link"
+				href={`/post/${data.next.slug}`}
+				on:mouseover={() => {
+					showNext = true;
+				}}
+				on:focus={() => {
+					showNext = true;
+				}}
+				on:mouseleave={() => {
+					showNext = false;
+				}}
+				on:focusout={() => {
+					showNext = false;
+				}}
+			>
+				<span>Next Post</span>
+				<span class="arrow">→</span>
+			</a>
+		{/if}
 	</div>
 </div>
 
@@ -122,7 +193,6 @@
 		}
 	}
 
-
 	.article-footer {
 		font-size: 0.8em;
 
@@ -136,6 +206,48 @@
 
 		.category {
 			text-transform: capitalize;
+		}
+	}
+
+	.nav-links {
+		position: relative;
+
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		width: 100%;
+
+		.post-preview {
+			font-size: 1.5vw;
+
+			position: absolute;
+			z-index: 10;
+			bottom: 2.5rem;
+
+			width: 20em;
+			padding: 1em;
+
+			border: $border;
+			border-radius: $border-radius;
+			background: $bkg;
+			box-shadow: 0 0 0.5em 0.1em rgba(0, 0, 0, 0.1);
+
+			&.prev {
+				left: 0;
+			}
+
+			&.next {
+				right: 0;
+			}
+
+			@media screen and (max-width: $mobile) {
+				font-size: 3vw;
+
+				bottom: 1.5rem;
+
+				width: 90%;
+			}
 		}
 	}
 </style>

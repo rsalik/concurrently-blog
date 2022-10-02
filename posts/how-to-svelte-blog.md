@@ -1,7 +1,7 @@
 ---
 title: How to Build a Blog with SvelteKit
 description: How to build a blog like the one you're reading right now, using SvelteKit.
-date: 2022-10-01
+date: 2022-10-02
 author: Ryan Salik
 authorLink: https://ryansalik.com
 category: coding tutorial
@@ -9,6 +9,8 @@ featured: true
 ---
 
 ![Code](../imgs/first-post/website-source.png)
+
+*Big thanks to [mattjennings on GitHub](https://github.com/mattjennings/sveltekit-blog-template), whose code I used to learn how to do this.*
 
 The blog that you're reading right now is built with [SvelteKit](https://kit.svelte.dev/). Posts are written in markdown, and `mdsvex` is used to parse the markdown into HTML.
 

@@ -10,5 +10,5 @@ export const load: PageServerLoad = async ({ params }) => {
 
 	if (!post) throw error(404, 'Not found');
 
-	return { post };
+	return { post, next: posts[post.index + 1], prev: posts[post.index - 1] };
 };

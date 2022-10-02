@@ -161,9 +161,10 @@ article {
 	// Clearfix
 
 	&::after {
-		content: '';
-		clear: both;
 		display: table;
+		clear: both;
+
+		content: '';
 	}
 
 	@media screen and (max-width: $mobile) {
@@ -174,17 +175,16 @@ article {
 		width: 100%;
 		max-height: 25em;
 
-		object-fit: cover;
-
 		border-radius: $border-radius;
+
+		object-fit: cover;
 
 		&.float {
 			float: right;
 
-			max-height: none;
-
 			max-width: 40%;
-			margin: 0 1.2rem;
+			max-height: none;
+			margin: 0 2rem;
 
 			border-radius: $border-radius;
 		}
