@@ -21,7 +21,11 @@ body {
 	font-weight: $fw-light;
 
 	color: $color;
-	background: $accent;
+	background: #000;
+
+	@media screen and (max-width: $mobile) {
+		font-size: 16px;
+	}
 }
 
 h1,
@@ -85,16 +89,32 @@ code {
 	font-family: 'Fira Code', 'Fira Mono', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
 	font-size: 0.95em;
 
+	overflow: scroll;
+
+	max-width: 100%;
 	padding: 0.1em 0.2em;
 
 	white-space: nowrap;
 
 	border-radius: 5px;
 	background: $darkwhite;
+
+	@media screen and (max-width: $mobile) {
+		display: inline-flex;
+		overflow-y: hidden;
+		align-items: center;
+
+		height: 1.3em;
+		padding: 0.05em 0.4em;
+
+		white-space: normal;
+	}
 }
 
 pre code {
 	font-size: 1em;
+
+	display: inline;
 
 	padding: 0;
 
@@ -111,6 +131,10 @@ article {
 	line-height: 2em;
 
 	margin: 1rem 0;
+
+	@media screen and (max-width: $mobile) {
+		font-size: 1rem;
+	}
 
 	img {
 		width: 100%;

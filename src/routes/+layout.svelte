@@ -25,6 +25,7 @@
 
 <style lang="scss">
 	$header-height: 20vh;
+	$header-height-mobile: 25vw;
 
 	header {
 		font-size: 2.7em;
@@ -38,6 +39,12 @@
 		width: 95%;
 		height: $header-height;
 		margin: 0 auto;
+
+		@media screen and (max-width: $mobile) {
+			font-size: 10vw;
+
+			height: $header-height-mobile;
+		}
 
 		nav {
 			font-size: 0.3em;
@@ -73,6 +80,10 @@
 		width: 92%;
 		min-height: 100vh - $header-height;
 		margin: 0 auto;
+
+		@media screen and (max-width: $mobile) {
+			min-height: calc(100vh - $header-height-mobile);
+		}
 	}
 
 	footer {
@@ -86,16 +97,10 @@
 
 		justify-items: center;
 
-		::after {
-			right: 0;
-			bottom: 0;
-			left: 0;
+		@media screen and (max-width: $mobile) {
+			font-size: 4vw;
 
-			height: 100px;
-
-			content: '';
-
-			background: red;
+			padding: 1.5em 2rem;
 		}
 
 		.title {

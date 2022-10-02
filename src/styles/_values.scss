@@ -25,10 +25,12 @@ $fw-semibold: 600;
 $fw-bold: 700;
 $fw-black: 900;
 
+$mobile: 768px;
+
 $transition-duration: 0.2s;
 
 @mixin transition() {
 	transition: color $transition-duration ease-in-out,
-		background-color $transition-duration ease-in-out, border-color $transition-duration ease-in-out,
-		box-shadow $transition-duration ease-in-out;
+	background-color $transition-duration ease-in-out, border-color $transition-duration ease-in-out,
+	box-shadow $transition-duration ease-in-out;
 }

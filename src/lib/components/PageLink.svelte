@@ -75,6 +75,10 @@
 				text-overflow: ellipsis;
 
 				-webkit-line-clamp: 3;
+
+				@media screen and (max-width: $mobile) {
+					display: none;
+				}
 			}
 		}
 
@@ -114,10 +118,15 @@
 				display: flex;
 				align-items: center;
 
+				max-width: 40%;
 				height: 100%;
 
 				img {
-					max-height: 100%;
+					width: 100%;
+					height: 100%;
+
+					object-fit: cover;
+					//max-height: 100%;
 				}
 			}
 

@@ -45,6 +45,10 @@
 	.page {
 		width: 60%;
 		margin: 0 auto;
+
+		@media screen and (max-width: $mobile) {
+			width: 90%;
+		}
 	}
 
 	.title {
@@ -59,6 +63,10 @@
 
 		margin-bottom: 0.6em;
 		padding-bottom: 0.6em;
+
+		@media screen and (max-width: $mobile) {
+			font-size: 2em;
+		}
 
 		::after {
 			position: absolute;
@@ -96,10 +104,21 @@
 
 		text-align: left;
 
+		@media screen and (max-width: $mobile) {
+			font-size: 0.8rem;
+
+			display: flex;
+			flex-direction: column;
+		}
+
 		.date {
 			margin-left: 0.7em;
 
 			color: $lightcolor;
+
+			@media screen and (max-width: $mobile) {
+				margin-left: 0;
+			}
 		}
 	}
 
