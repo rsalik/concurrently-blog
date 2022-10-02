@@ -17,7 +17,13 @@ export const posts = Object.entries(import.meta.glob('/posts/**/*.md', { eager: 
 		if (post.metadata.description) description = post.metadata.description;
 		else {
 			for (const child of html.childNodes) {
-				if (child.rawText.trim().length) {
+				// TypeScript doesn't know that child is a HTMLElement,
+				// and also doesn't know that HTMLElement has a rawTagName property.
+				const ukChild = child as unknown;
+				if (
+					!(ukChild as { rawTagName: string }).rawTagName?.includes('h') &&
+					child.rawText.trim().length
+				) {
 					description = child.rawText;
 					break;
 				}

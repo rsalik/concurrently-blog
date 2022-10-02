@@ -28,10 +28,8 @@
 
 <div>
 	{#each data.posts as post, i}
+		<div class="spacer" />
 		<PageLink page={post} display={mobile ? 'card' : 'row'} />
-		{#if i < data.posts.length - 1}
-			<div class="spacer" />
-		{/if}
 	{/each}
 </div>
 
@@ -47,5 +45,11 @@
 		span {
 			text-transform: capitalize;
 		}
+	}
+
+	.spacer {
+		height: 1px;
+		margin: 1em 0;
+		background: $gray;
 	}
 </style>

@@ -62,7 +62,7 @@
 			}
 
 			.title {
-				font-size: 0.89em;
+				font-size: 1.5em;
 			}
 
 			.description {
@@ -80,6 +80,12 @@
 					display: none;
 				}
 			}
+
+			.date {
+				@media screen and (max-width: $mobile) {
+					font-size: .75em;
+				}
+			}
 		}
 
 		&.feature {
@@ -89,6 +95,10 @@
 
 			box-sizing: border-box;
 			width: 100%;
+
+			@media screen and (max-width: $mobile) {
+				font-size: 1.35em;
+			}
 
 			img {
 				width: 100%;

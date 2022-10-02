@@ -65,7 +65,7 @@
 		padding-bottom: 0.6em;
 
 		@media screen and (max-width: $mobile) {
-			font-size: 2em;
+			font-size: 2.2em;
 		}
 
 		::after {
@@ -121,6 +121,7 @@
 			}
 		}
 	}
+
 
 	.article-footer {
 		font-size: 0.8em;

@@ -93,6 +93,10 @@
 		height: 1px;
 
 		background: $gray;
+
+		@media (max-width: 768px) {
+			margin: 1em 0;
+		}
 	}
 
 	.posts-mobile {

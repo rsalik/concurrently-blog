@@ -107,7 +107,14 @@ Assuming that `mdsvex` is configured correctly, each entry in `posts` will be an
 		if (post.metadata.description) description = post.metadata.description;
 		else {
 			for (const child of html.childNodes) {
-				if (child.rawText.trim().length) {
+				// TypeScript doesn't know that child is a HTMLElement,
+				// and also doesn't know that HTMLElement has a rawTagName property.
+				const ukChild = child as unknown;
+				if (
+					// Ignore headings
+					!(ukChild as { rawTagName: string }).rawTagName?.includes('h') &&
+					child.rawText.trim().length
+				) {
 					description = child.rawText;
 					break;
 				}
@@ -121,6 +128,15 @@ Assuming that `mdsvex` is configured correctly, each entry in `posts` will be an
 			description,
 		};
 	})
+```
+
+You can also sort the posts by date, and include an `index` property which will allow us to add a "next" and "previous" button to each post:
+
+```ts
+.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+.map((post, index) => {
+	return { ...post, index };
+});
 ```
 
 Make sure that only the server can run this file by adding this to the top of the file:
