@@ -61,10 +61,6 @@
 				margin-bottom: 1rem;
 			}
 
-			.title {
-				font-size: 1.5em;
-			}
-
 			.description {
 				font-size: 0.6em;
 
@@ -97,6 +93,10 @@
 			width: 100%;
 
 			@media screen and (max-width: $mobile) {
+				font-size: 1.35em;
+			}
+
+			.title {
 				font-size: 1.35em;
 			}
 
@@ -175,9 +175,13 @@
 		}
 
 		.title {
-			font-size: 1.3em;
+			font-size: 1.1em;
 			font-weight: $fw-semibold;
 			line-height: 1.2em;
+
+			@media screen and (max-width: $mobile) {
+				font-size: 1.5em;
+			}
 		}
 
 		.description {
